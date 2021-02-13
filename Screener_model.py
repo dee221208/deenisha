@@ -8,7 +8,7 @@ import glob
 import pandas as pd
 from win32com.client import Dispatch
 xl = Dispatch('Excel.Application')
-files = glob.glob(r'C:\Users\Deepan\Documents\GitHub\deenisha\screener_model_building\*.xlsx*')
+files = glob.glob(r'C:\Users\Deepan\Documents\GitHub\deenisha\screener_model_building\as_of_02_01_2021\*.xlsx*')
 files
 df = pd.DataFrame()
 df_summary = pd.DataFrame()
