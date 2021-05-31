@@ -13,6 +13,15 @@ import datetime
 end = datetime.datetime.today()
 start = datetime.date(end.year-8,9,1)
 
+"""
+	Fetch historical stock price of the given security
+	Add date column to the index and Year to the data set. Remove unncessary columns
+	Rolling 200 days
+	Calculate max price for each year. Expectation is each year's price should surpass previous year's high. 
+	Arrange values in the list based on year vs sorted based on prices. When both same, stock keep raising previous year high.	
+	
+"""
+
 def my_stock_price(stock_nm):
     #stock_nm="3MINDIA.NS"
     data=web.get_data_yahoo(stock_nm,start,interval='d')
@@ -46,7 +55,7 @@ def my_stock_price(stock_nm):
     if LIST == NON_SORT_LIST:
         print(stock_nm,"Qualifies")
     else:
-        print(stock_nm,"Not-Qualifies")
+        print(stock_nm," *** Not-Qualifies")
         
         
 stock_list=["AARTIDRUGS.NS","AARTIIND.NS","ADANIGREEN.NS","ADANITRANS.NS","AFFLE.NS","AIAENG.NS","AKZOINDIA.NS","ALKYLAMINE.NS","ASIANPAINT.NS","ASTRAL.NS","ATGL.NS","ATUL.NS","BAJFINANCE.NS","BERGEPAINT.NS","BHARATRAS.NS","BRITANNIA.NS","CHAMBLFERT.NS","CHOLAFIN.NS","COFORGE.NS","CROMPTON.NS","DABUR.NS","DIXON.NS","DMART.NS","FINEORG.NS","GARFIBRES.NS","GMMPFAUDLR.NS","GODREJPROP.NS","GRSE.NS","HAVELLS.NS","HDFC.NS","HDFCBANK.NS","HDFCLIFE.NS","HEIDELBERG.NS","HINDUNILVR.NS","HINDZINC.NS","HONAUT.NS","HUHTAMAKI.NS","ICICIGI.NS","ICICIPRULI.NS","IGL.NS","INDIAMART.NS","INDUSTOWER.NS","INFY.NS","IRCTC.NS","KANSAINER.NS","KOTAKBANK.NS","LTI.NS","LTTS.NS","MANAPPURAM.NS","MARICO.NS","METROPOLIS.NS","MIDHANI.NS","MUTHOOTFIN.NS","NAUKRI.NS","NAVINFLUOR.NS","ORIENTELEC.NS","PGHL.NS","PHOENIXLTD.NS","PIDILITIND.NS","PIIND.NS","POLYCAB.NS","POLYPLEX.NS","POWERGRID.NS","POWERINDIA.NS","RAMCOCEM.NS","RATNAMANI.NS","RELAXO.NS","RELIANCE.NS","SANOFI.NS","SBICARD.NS","SOLARA.NS","SONATSOFTW.NS","SRF.NS","STLTECH.NS","SUMICHEM.NS","SUPREMEIND.NS","SUVENPHAR.NS","SYNGENE.NS","TASTYBITE.NS","TATACONSUM.NS","TATAINVEST.NS","TCIEXP.NS","TCS.NS","TIINDIA.NS","TITAN.NS","TORNTPOWER.NS","TRENT.NS","VBL.NS","VINATIORGA.NS","VOLTAS.NS","WESTLIFE.NS","WHIRLPOOL.NS","WIPRO.NS"]
